@@ -1,0 +1,16 @@
+<!--pages/mine/mine.wxml-->
+<button 
+type="primary" 
+open-type="getUserInfo"
+bindgetuserinfo="registerAction"
+wx:if="{{!isLogin}}"
+>授权登录</button>
+<view class='user' wx:if="{{isLogin}}">
+  <view class='user-avatar'>
+    <open-data type='userAvatarUrl'></open-data>
+  </view>
+  <view class='user-name'>
+    <open-data type='userNickName'></open-data>
+  </view>
+ 
+</view>
