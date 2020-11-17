@@ -1,8 +1,10 @@
 {
+  "entryPagePath" :  "pages/topicList/topicList",
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
     "pages/msgs/msgs",
+    "pages/topicList/topicList"
     "pages/write/write"
   ],
   "sitemapLocation": "sitemap59.json",
