@@ -1,0 +1,21 @@
+<view class="topic">
+  <view class="topic_list">
+    <view class="topic_item" wx:for="{{list}}" wx:key="index">
+      <view class="left">
+        <image src="{{item.themeImage}}" />
+      </view>
+      <view class="right">
+        <view class="title_box">
+          <text class="title">#{{item.themeName}}#</text>
+          <text class="recommend" wx:if="{{item.isRecommend}}">推荐</text>
+        </view>
+        <view class="content">{{item.themeDetail}}</view>
+        <view class="statistics">
+          <text class="discussion">{{item.discussNum}}条讨论</text>
+          <text class="browse">{{item.discussNum}}人浏览</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">暂无更多话题，过会再来看看吧</view>
+</view>

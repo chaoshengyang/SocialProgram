@@ -1,8 +1,10 @@
 {
+  "entryPagePath" :  "pages/topicList/topicList",
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
-    "pages/msgs/msgs"
+    "pages/msgs/msgs",
+    "pages/topicList/topicList"
   ],
   "sitemapLocation": "sitemap59.json",
   "tabBar": {
@@ -25,7 +27,6 @@
         "iconPath": "icon/wode.png",
         "selectedIconPath": "icon/wode1.png"
       }
-    
     ]
   }
 }
