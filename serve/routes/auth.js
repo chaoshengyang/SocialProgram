@@ -49,7 +49,7 @@ router.post("/send_code", async (ctx) => {
   }
 
 });
-
+// 检查登录
 // router.get('/check_login', async(ctx)=>{
 //   ctx.verifyParams({
 //     token: 'string'
