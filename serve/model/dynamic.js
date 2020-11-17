@@ -29,7 +29,7 @@ module.exports = model('dynamic', {
     //动态分类
     dynamicType: {
         type: String,
-        default: 'new'
+        default: '我们大家庭'
     },
 
 

@@ -15,7 +15,7 @@
         <view bindtap="addImgAction">
           <image src="../../icon/addImg.png" class="addImg"></image>
         </view>
-        <navigator url="../index/index"><text>#话题</text></navigator>
+        <view bindtap="chooseTheme"><text>#话题</text></view>
       </view>
       <view class="fr">{{noteNowLen}}/{{noteMaxLen}}</view>
     </view>

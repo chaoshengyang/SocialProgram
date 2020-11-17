@@ -65,6 +65,13 @@ Page({
     }
 
   },
+  //选择话题
+  chooseTheme(){
+    wx.navigateTo({
+      url:"/pages/topicList/topicList?id=publish"
+    })
+   
+  },
   //拉起图片
   addImgAction() {
     // 选择图片
