@@ -1,11 +1,12 @@
 {
-  "entryPagePath" :  "pages/topicList/topicList",
+  "entryPagePath": "pages/topicList/topicList",
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
     "pages/msgs/msgs",
-    "pages/topicList/topicList"
-    "pages/write/write"
+    "pages/topicList/topicList",
+    "pages/write/write",
+    "pages/topicDetail/topicDetail"
   ],
   "sitemapLocation": "sitemap59.json",
   "tabBar": {
