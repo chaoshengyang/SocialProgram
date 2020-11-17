@@ -1,5 +1,31 @@
 {
   "pages": [
-    "pages/index/index"
-  ]
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/msgs/msgs"
+  ],
+  "sitemapLocation": "sitemap59.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icon/shouye1.png",
+        "selectedIconPath": "icon/shouye.png"
+      },
+      {
+        "pagePath": "pages/msgs/msgs",
+        "text": "消息",
+        "iconPath": "icon/news.png",
+        "selectedIconPath": "icon/news1.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "icon/wode.png",
+        "selectedIconPath": "icon/wode1.png"
+      }
+    
+    ]
+  }
 }
