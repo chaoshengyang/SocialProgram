@@ -27,7 +27,7 @@ router.post("/send_code", async (ctx) => {
       //老用户了
       ctx.status = 200;
       ctx.body = {
-        message: '已注册',
+        message: '已经注册过',
         openid: result.data.openid
       };
     } else {
@@ -36,7 +36,7 @@ router.post("/send_code", async (ctx) => {
       // 登录第五步：响应登录态给客户端
       ctx.status = 200;
       ctx.body = {
-        message: '注册ok',
+        message: '注册成功',
         openid: result.data.openid
       };
     }
@@ -49,7 +49,7 @@ router.post("/send_code", async (ctx) => {
   }
 
 });
-
+// 检查登录
 // router.get('/check_login', async(ctx)=>{
 //   ctx.verifyParams({
 //     token: 'string'
