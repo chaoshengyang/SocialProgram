@@ -1,0 +1,37 @@
+/* miniprogram/pages/write/wtite.wxss */
+
+.feedback-button{
+  margin-top: 20rpx;
+}
+textarea{
+  width: 100%;
+}
+.feedback-content{
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+.number-limit{
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fl{
+  display: flex;
+}
+.addImg{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 40rpx;
+}
+.imgs{
+  display: flex;
+  justify-content: space-around;
+}
+.userAddImg{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx 0;
+}

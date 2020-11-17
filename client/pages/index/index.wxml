@@ -1,2 +1,44 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!--miniprogram/index/index.wxml-->
+
+
+
+
+
+<view class="navbar">
+  <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+    <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.name}}</view>
+  </view>
+  <navigator url="../write/write">
+      <image src="../../icon/write.png" class="write"></image>
+  </navigator>
+</view>
+
+<!-- 
+<block wx:for="{{msgList}}" wx:key="_id">
+  <view class="MsgWrap">
+    <view class='user'>
+      <view class='user-avatar'>
+        <image src="{{item.picurl}}" class="user-img"></image>
+      </view>
+      <view class='user-name'>
+        <text>{{item.nickname}}</text>
+        <view>{{item.time}}</view>
+      </view>
+
+    </view>
+    <view class="imgsWrap">
+      <block wx:for="{{item.imgFilePath}}" wx:key="index" wx:for-item="itemName">
+        <image src="{{itemName[0]}}" class="userAddImg"></image>
+      </block>
+    </view>
+
+    <view class="content">
+      {{item.msg}}
+    </view>
+    <view class="handle">
+      <image src="../../icon/dianzan.png" class="handleImg"></image>
+      <image src="../../icon/huifu.png" class="handleImg"></image>
+      <image src="../../icon/zhuanfa.png" class="handleImg"></image>
+    </view>
+  </view>
+</block> -->
