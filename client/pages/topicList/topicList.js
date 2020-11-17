@@ -5,24 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      // {
-      //   img:"../../img/touxiang.jpg",
-      //   title:"#我们大家庭#",
-      //   content:"升学的老师们，你们辛苦了升学的老师们，你们辛苦了",
-      //   isRecommend: true,
-      //   discussion:100258,
-      //   browse:100258
-      // },
-      // {
-      //   img:"../../img/touxiang.jpg",
-      //   title:"#我们大家庭#",
-      //   content:"升学的老师们，你们辛苦了升学的老师们，你们辛苦了",
-      //   isRecommend: false,
-      //   discussion:100258,
-      //   browse:100258
-      // }
-    ]
+    list:[]
+  },
+  goDetail(options){
+    var id = options.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../topicDetail/topicDetail?id='+ id,
+    })
   },
 
   /**
@@ -33,7 +22,6 @@ Page({
       url: 'http://localhost:3000/api/theme/themeList',
       method:"GET",
       success: (res)=>{
-        console.log(res.data.data)
         this.setData({list:res.data.data})
       }
     })

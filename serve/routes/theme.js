@@ -19,6 +19,26 @@ router.get("/themeList",async(ctx)=>{
     }
 })
 
+router.post("/getThemeListDetail",async(ctx)=>{
+    ctx.verifyParams({
+        id:"string"
+    })
+    const id = ctx.request.body.id
+    const result = await Theme.findOne({_id:id})
+    if(result){
+        ctx.status = 200
+        ctx.body = {
+            message:'ok',
+            data:result
+        }
+    }else{
+        ctx.status = 404
+        ctx.body = {
+            message:'获取详情失败',
+        }
+    }
+})
+
 router.post("/detailThemeList",async(ctx)=>{
     ctx.verifyParams({
         id:"string"
