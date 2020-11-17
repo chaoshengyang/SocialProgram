@@ -5,6 +5,14 @@ module.exports = model('dynamic', {
         type: String,
         require: true
     },
+    username:{
+        type:String,
+        require:true
+    },
+    avatarUrl:{
+        type:String,
+        require:true
+    },
     dynamicText: {
         type: String,
         required: true

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openid:null,
     noteMaxLen: 70,//备注最多字数
     info: "",
     noteNowLen: 0,//备注当前字数,
@@ -27,11 +28,40 @@ Page({
   bindSubmit: function () {
     if (this.data.info === '') {
       wx.showToast({
-        title: '请输入内容(200字以内)...',
+        title: '请输入内容',
       })
       return;
     } else {
- 
+      wx.request({
+        url: 'http://localhost:3000/api/dynamic/send_dynamic',
+        data: {
+          openid:this.data.openid,
+          dynamicText:this.data.info,
+          dynamicImage:[],
+          publishTime:new Date().getTime(),
+          dynamicType:'new'
+        },
+        method: "POST",
+        success(res) {
+          console.log(res);
+          wx.showToast({
+            title: '发布成功',
+            duration:2000,
+            mask:true,
+         
+            success(){
+              setTimeout(() => {
+                wx.switchTab({
+                  url: '../index/index',
+                })  
+              }, 2000);
+             
+            }
+            
+          })
+          
+        }
+      })
     }
 
   },
@@ -53,7 +83,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({openid:options.openid})
   },
 
 

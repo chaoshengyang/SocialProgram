@@ -1,5 +1,6 @@
 const Router = require("koa-router");
 const Dynamic = require('../model/dynamic');
+const User = require("../model/user");
 
 
 const router = new Router({ prefix: "/api/dynamic" });
@@ -8,33 +9,47 @@ router.post("/send_dynamic", async (ctx) => {
     // 验证参数
     ctx.verifyParams({
         //把openid发过来
-        username: "string",
+        openid: "string",
         dynamicText: "string",
-        dynamicImage: "array",
+        dynamicImage: {
+            type:"array",
+            required:false,
+            default:[]
+        },
         publishTime: "number",
-        dynamicType: "string"
+        dynamicType: {
+            type:"string",
+            required:false,
+            default:'new'
+        }
     });
-
+    // console.log(ctx.request.body);
+  
+    const result = ctx.request.body;
+    const info = await User.findOne({openid:result.openid})
+    console.log(info);
     //添加新的动态
-    await new User({
-        username: result.data.username,
-        dynamicText: result.data.dynamicText,
-        dynamicImage: result.data.dynamicImage,
-        publishTime: result.data.publishTime,
-        dynamicType: result.data.dynamicType,
+    await new Dynamic({
+        openid: result.openid,
+        dynamicText: result.dynamicText,
+        dynamicImage: result.dynamicImage,
+        publishTime: result.publishTime,
+        dynamicType: result.dynamicType,
+        username:info.nickName,
+        avatarUrl:info.avatarUrl
 
     }).save();
     // 登录第五步：响应登录态给客户端
     ctx.status = 200;
     ctx.body = {
         message: '发布成功',
-        openid: result.data.openid
+        openid: result.openid
     };
 
 
 });
 //获得所有的动态
-router.post("/get_AllDynamic", async (ctx) => {
+router.get("/get_AllDynamic", async (ctx) => {
 
     const dynamic = await Dynamic.find();
     // 登录第五步：响应登录态给客户端
@@ -45,7 +60,7 @@ router.post("/get_AllDynamic", async (ctx) => {
     };
 });
 //获得当前用户的动态
-router.post("/get_dynamic", async (ctx) => {
+router.get("/get_dynamic", async (ctx) => {
     ctx.verifyParams({
         //把openid发过来
         username: "string",

@@ -3,7 +3,7 @@
 <view class="feedback">
   <view class="feedback-content">
 
-    <textarea class="feedback-content-info" bindinput="bindTextAreaChange" placeholder="请输入你的信息" value="{{info}}"
+    <textarea class="feedback-content-info" bindinput="bindTextAreaChange" placeholder="请输入内容(200字以内)..." value="{{info}}"
       maxlength="{{noteMaxLen}}" auto-focus="true"></textarea>
     <!-- <view class="imgs">
       <block wx:for="{{imgList}}" wx:key="index">

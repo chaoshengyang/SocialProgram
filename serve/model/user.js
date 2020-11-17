@@ -1,26 +1,47 @@
-const {model,SchemaTypes} = require('mongoose');
+const { model, SchemaTypes } = require('mongoose');
 
 module.exports = model('user', {
   openid: {
-    type:String,
-    require:true
+    type: String,
+    require: true
   },
-  // username: {
-  //   type: String,
-  //   required: true
-  // },
-  // userImage:{
-  //   type: String,
-  //   required: true
-  // },
-  // //关联用户关注列表
-  // userFocus:{
-  //   type:SchemaTypes.ObjectId,
-  //   default:00000
-  // },
-  // //关联用户发布动态列表
-  // userPublishList:{
-  //   type:SchemaTypes.ObjectId,
-  //   default:00000
-  // }
+  nickName: {
+    type: String,
+    required: true,
+    default:''
+  },
+  avatarUrl: {
+    type: String,
+    required: true,
+    default:''
+  },
+  gender:{
+    type:Number,
+    require:false,
+    default:1
+  },
+  //签名
+  signature: {
+    type: String,
+    required: false,
+    default:''
+  },
+  userLabel: {
+    type: String,
+    required: false,
+    default:''
+  },
+  userProvince: {
+    type: String,
+    required: false
+  },
+  userCity: {
+    type: String,
+    required: false
+  },
+  userPhone: {
+    type: String,
+    required: false,
+    default: 12345
+  }
 })
