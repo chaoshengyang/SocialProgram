@@ -1,14 +1,10 @@
 <!--miniprogram/index/index.wxml-->
 
-
-
-
-
 <view class="navbar">
   <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
     <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.name}}</view>
   </view>
-  <navigator url="../write/write">
+  <navigator url="../write/write?openid={{openid}}" >
       <image src="../../icon/write.png" class="write"></image>
   </navigator>
 </view>
