@@ -1,7 +1,7 @@
 const Koa = require("koa");
 const error = require("koa-json-error");
 const parameter = require("koa-parameter");
-const bodyparser = require("koa-bodyparser");
+// const bodyparser = require("koa-bodyparser");
 const auth = require("./routes/auth");
 
 const theme = require("./routes/theme")
@@ -20,9 +20,6 @@ app.use(
     },
   })
 );
-
-// 解析参数
-// app.use(bodyparser());
 //处理POST参数, 
 app.use(async (ctx, next)=>{
   await new Promise((resolve,reject)=>{
@@ -39,6 +36,12 @@ app.use(async (ctx, next)=>{
   })
   await next(); 
 })
+
+// 解析参数
+// app.use(bodyparser());
+
+
+
 
 // 验证参数
 parameter(app);

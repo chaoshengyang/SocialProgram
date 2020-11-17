@@ -12,9 +12,9 @@
   background: #fff;
   align-items: center;
   /* 固定在顶部 */
-  position: fixed;
+  /* position: fixed;
   left: 0rpx;
-  top: 0rpx;
+  top: 0rpx; */
 
 }
 
