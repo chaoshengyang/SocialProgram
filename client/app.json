@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/mine/mine",
-    "pages/msgs/msgs"
+    "pages/msgs/msgs",
+    "pages/write/write"
   ],
   "sitemapLocation": "sitemap59.json",
   "tabBar": {
@@ -25,7 +26,6 @@
         "iconPath": "icon/wode.png",
         "selectedIconPath": "icon/wode1.png"
       }
-    
     ]
   }
 }

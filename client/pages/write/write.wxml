@@ -1,0 +1,24 @@
+<!--miniprogram/pages/write/wtite.wxml-->
+
+<view class="feedback">
+  <view class="feedback-content">
+
+    <textarea class="feedback-content-info" bindinput="bindTextAreaChange" placeholder="请输入你的信息" value="{{info}}"
+      maxlength="{{noteMaxLen}}" auto-focus="true"></textarea>
+    <!-- <view class="imgs">
+      <block wx:for="{{imgList}}" wx:key="index">
+        <image src="{{item}}" class="userAddImg" ></image>
+      </block>
+    </view> -->
+    <view class="number-limit">
+      <view class="fl">
+        <view bindtap="addImgAction">
+          <image src="../../icon/addImg.png" class="addImg"></image>
+        </view>
+        <navigator url="../index/index"><text>#话题</text></navigator>
+      </view>
+      <view class="fr">{{noteNowLen}}/{{noteMaxLen}}</view>
+    </view>
+  </view>
+  <view class="feedback-button"><button type="primary" bindtap="bindSubmit"> 提交 </button></view>
+</view>
