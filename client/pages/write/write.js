@@ -39,7 +39,7 @@ Page({
           dynamicText:this.data.info,
           dynamicImage:[],
           publishTime:new Date().getTime(),
-          dynamicType:'new'
+          dynamicType:'我们大家庭'
         },
         method: "POST",
         success(res) {

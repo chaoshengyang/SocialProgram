@@ -1,42 +1,23 @@
-// pages/topicDetail/topicDetail.js
+// pages/dynamicDetails/dynamicDetails.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    topicObj:{},
-    topicList:[]
-    
-  },
-  goDynamicDetails(options){
-    var id = options.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../dynamicDetails/dynamicDetails?id='+ id,
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function ({id,title}) {
+  onLoad: function (id) {
     wx.request({
-      url: 'http://localhost:3000/api/theme/getThemeListDetail',
-      data:{id:id},
+      url: 'http://localhost:3000/api/dynamic/getDynamicDetail',
+      data:id,
       method:'POST',
       success:(res)=>{
-        this.setData({topicObj:res.data.data})
-        wx.setNavigationBarTitle({
-          title: "#"+this.data.topicObj.themeName + "#"
-        })
-      }
-    });
-    wx.request({
-      url: 'http://localhost:3000/api/dynamic/get_AllDynamic',
-      data:{title},
-      method:'POST',
-      success:(res)=>{
-        this.setData({topicList:res.data.dynamic})
+        console.log(res)
       }
     });
   },

@@ -9,8 +9,9 @@ Page({
   },
   goDetail(options){
     var id = options.currentTarget.dataset.id
+    var title = options.currentTarget.dataset.title
     wx.navigateTo({
-      url: '../topicDetail/topicDetail?id='+ id,
+      url: '../topicDetail/topicDetail?id='+ id + '&title=' + title,
     })
   },
 

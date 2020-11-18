@@ -1,0 +1,17 @@
+<view class="topic_detail">
+  <view class="item_detail" wx:for="{{topicList}}" wx:key="index">
+    <view class="user_info">
+      <view class="user_img">
+        <image src="{{item.avatarUrl}}" />
+      </view>
+      <view class="box">
+        <view class="user-box">
+        <view class="user-name">{{item.username}}</view>
+        <view class="date">{{item.publishTime}}</view>
+      </view>
+      <view class="focus">关注</view>
+      </view>
+    </view>
+    <view class="main">{{item.dynamicText}}</view>
+  </view>
+</view>
