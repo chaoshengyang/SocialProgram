@@ -1,2 +1,64 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!--miniprogram/index/index.wxml-->
+<!-- 话题广场 -->
+<view class="huati">
+  <view class="top" bindtap="TotopicList"><text>话题广场</text><text>更多 ></text>
+  </view>
+  <view class="topic">
+      <view class="topicItem">
+         <text>#升学大家庭#</text>
+         <text class="comment">2990条讨论</text>
+      </view>
+      <view class="topicItem">
+         <text>#升学大家庭#</text>
+         <text class="comment">2990条讨论</text>
+      </view>
+      <view class="topicItem">
+         <text>#升学大家庭#</text>
+         <text class="comment">2990条讨论</text>
+      </view>
+  </view>
+</view>
+
+
+
+<view class="navbar">
+  <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
+    <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.name}}</view>
+  </view>
+  <navigator url="../write/write?openid={{openid}}">
+    <image src="../../icon/write.png" class="write"></image>
+  </navigator>
+</view>
+
+
+<view class="topic_detail">
+  <view class="item_detail" wx:for="{{dataList}}" wx:key="_id">
+    <view class="user_info">
+      <view class="user_img">
+        <image src="{{item.avatarUrl}}" />
+      </view>
+      <view class="box">
+        <view class="user-box">
+          <view class="user-name">{{item.username}}</view>
+          <view class="date">{{item.publishTime}}</view>
+        </view>
+        <view class="focus">关注</view>
+      </view>
+    </view>
+    <view class="main">{{item.dynamicText}}</view>
+    <view class="options">
+      <view class="thumbs">
+        <image src="/icon/dianzan.png" />
+        <text>{{item.thumbsCount}}</text>
+      </view>
+      <view class="comment">
+        <image src="/icon/huifu.png" />
+        <text>{{item.commentCount}}</text>
+      </view>
+      <view class="share">
+        <image src="/icon/zhuanfa.png" />
+        <text>{{item.sharCount}}</text>
+      </view>
+    </view>
+  </view>
+</view>

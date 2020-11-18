@@ -12,6 +12,7 @@ mongoose.connect(
     } else {
       console.log("数据库连接成功");
 
+
       // 启动服务器
       const server = http.createServer(app.callback());
       server.on("error", (error) => {

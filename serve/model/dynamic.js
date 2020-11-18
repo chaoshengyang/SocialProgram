@@ -1,23 +1,34 @@
 const { model, SchemaTypes } = require('mongoose');
 
 module.exports = model('dynamic', {
-    // 用户
+    // 用户openid
     openid: {
         type: String,
         require: true
     },
-
-    // 动态文字
+    // 用户名
+    username:{
+        type:String,
+        require:true
+    },
+  //用户头像
+    avatarUrl:{
+        type:String,
+        require:true
+    },
+  //动态
     dynamicText: {
         type: String,
         required: true
     },
+
     // 动态图片
     dynamicImage: {
         type: Array,
         required: false,
         default:[]
     },
+
     // 发布时间
     publishTime: {
         type: SchemaTypes.Date,
@@ -43,5 +54,14 @@ module.exports = model('dynamic', {
         type:SchemaTypes.ObjectId,
         ref:"discussTheme"
     }
+//     publishTime: {
+//         type: Number,
+//         require: true
+//     },
+    //动态分类
+    dynamicType: {
+        type: String,
+        default: '我们大家庭'
+    },
 
 })

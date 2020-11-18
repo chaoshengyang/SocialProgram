@@ -1,7 +1,8 @@
-const {model,SchemaTypes} = require('mongoose');
+const { model, SchemaTypes } = require('mongoose');
 
 module.exports = model('user', {
   openid: {
+
     type:String,
     require:true
   },
@@ -30,5 +31,6 @@ module.exports = model('user', {
   userPhone:{
     type:SchemaTypes.Number,
   }
-  
+
+ 
 })

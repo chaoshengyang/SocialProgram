@@ -16,21 +16,16 @@ router.post("/send_dynamic", async (ctx) => {
             required:false,
             default:[]
         },
-        publishTime: {
-            type:"string",
-            require:false
-        },
+
+        publishTime: "number",
+
         dynamicType: {
             type:"string",
             required:false,
-            default:'new'
+            default:'我们大家庭'
+
         },
-        // publisherID:"string",
-        // themeAboutID:{
-        //     type:"string",
-        //     require:false,
-        //     default:"5fb3c53bc38186015fafc0a0"
-        // },
+       
         themeAbout:{
             type:"string",
             required:false,
@@ -47,33 +42,38 @@ router.post("/send_dynamic", async (ctx) => {
             default:[],
         },
 
+
+        }
     });
     // console.log(ctx.request.body);
   
     const result = ctx.request.body;
+
     // console.log(result);
     const info = await User.findOne({openid:result.openid});
 
     const theme = await Theme.findOne({themeName:result.themeName?result.themeName:"none"});
-
     //添加新的动态
     await new Dynamic({
         openid: result.openid,
         dynamicText: result.dynamicText,
         dynamicImage: result.dynamicImage,
-        publishTime: Date.now(),
+        publishTime: result.publishTime,
         dynamicType: result.dynamicType?result.dynamicType:'none',
-
         // 发布者的_id
-        publisher:info._id,
+        //publisher:info._id,
 
         // 话题的_id
-        themeAbout:theme._id
-
+        //themeAbout:theme._id,
+         username:info.nickName,
+        avatarUrl:info.avatarUrl
     }).save();
     // 响应客户端
+
+    // 登录第五步：响应登录态给客户端
     ctx.status = 200;
     ctx.body = {
+        
         message: '发布成功',
         openid: result.openid
     };
@@ -85,8 +85,6 @@ router.post("/send_dynamic", async (ctx) => {
 router.get("/get_AllDynamic", async (ctx) => {
 
     const dynamic = await Dynamic.find();
-
-    // 响应
     ctx.status = 200;
     ctx.body = {
         dynamic
@@ -98,9 +96,15 @@ router.get("/get_AllDynamic", async (ctx) => {
 router.get("/get_dynamic", async (ctx) => {
     ctx.verifyParams({
         //把openid发过来
+
         openid: "string",
     });
     const dynamic = await Dynamic.find({openid:ctx.request.openid});
+
+
+
+   // const dynamic = await Dynamic.findOne({username:ctx.request.username});
+
     // 登录第五步：响应登录态给客户端
     ctx.status = 200;
     ctx.body = {
