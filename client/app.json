@@ -6,7 +6,8 @@
     "pages/msgs/msgs",
     "pages/topicList/topicList",
     "pages/write/write",
-    "pages/topicDetail/topicDetail"
+    "pages/topicDetail/topicDetail",
+    "pages/dynamicDetails/dynamicDetails"
   ],
   "sitemapLocation": "sitemap59.json",
   "tabBar": {

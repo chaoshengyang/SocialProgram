@@ -19,32 +19,32 @@
 </view>
 
 <view class="topic_detail">
-  <view class="item_detail" wx:for="{{topicList}}" wx:key="index">
+  <view class="item_detail" wx:for="{{topicList}}" wx:key="_id" bindtap="goDynamicDetails" data-id="{{item._id}}">
     <view class="user_info">
       <view class="user_img">
-        <image src="{{item.userImage}}" />
+        <image src="{{item.avatarUrl}}" />
       </view>
       <view class="box">
         <view class="user-box">
-        <view class="user-name">{{item.userName}}</view>
-        <view class="date">{{item.date}}</view>
+        <view class="user-name">{{item.username}}</view>
+        <view class="date">{{item.publishTime}}</view>
       </view>
       <view class="focus">关注</view>
       </view>
     </view>
-    <view class="main">{{item.main}}</view>
+    <view class="main">{{item.dynamicText}}</view>
     <view class="options">
       <view class="thumbs">
         <image src="/icon/dianzan.png" />
-        <text>{{item.thumbsCount}}</text>
+        <text>20</text>
       </view>
       <view class="comment">
         <image src="/icon/huifu.png" />
-        <text>{{item.commentCount}}</text>
+        <text>20</text>
       </view>
       <view class="share">
         <image src="/icon/zhuanfa.png" />
-        <text>{{item.sharCount}}</text>
+        <text>20</text>
       </view>
     </view>
   </view>
