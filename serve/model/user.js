@@ -2,46 +2,35 @@ const { model, SchemaTypes } = require('mongoose');
 
 module.exports = model('user', {
   openid: {
-    type: String,
-    require: true
+
+    type:String,
+    require:true
   },
-  nickName: {
+  avatarUrl:{
     type: String,
-    required: true,
-    default:''
-  },
-  avatarUrl: {
-    type: String,
-    required: true,
-    default:''
+    required: false
   },
   gender:{
-    type:Number,
-    require:false,
-    default:1
+    type:SchemaTypes.String,
   },
-  //签名
-  signature: {
-    type: String,
-    required: false,
-    default:''
+  nickName:{
+    type:SchemaTypes.String,
   },
-  userLabel: {
-    type: String,
-    required: false,
-    default:''
+  signature:{
+    type:SchemaTypes.String,
   },
-  userProvince: {
-    type: String,
-    required: false
+  userLabel:{
+    type:SchemaTypes.String,
   },
-  userCity: {
-    type: String,
-    required: false
+  userProvince:{
+    type:SchemaTypes.String,
   },
-  userPhone: {
-    type: String,
-    required: false,
-    default: 12345
+  userCity:{
+    type:SchemaTypes.String,
+  },
+  userPhone:{
+    type:SchemaTypes.Number,
   }
+
+ 
 })

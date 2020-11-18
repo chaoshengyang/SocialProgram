@@ -20,9 +20,12 @@ Page({
     wx.getSetting({
       success: (res) => {
         //已授权
+
+
         if (res.authSetting["scope.userInfo"]) {
           console.log('已授权');
           this.setData({ isLogin: true });
+
           //检查是否注册过
           this.checkRegist()
         }
@@ -70,10 +73,18 @@ Page({
   //点击授权按钮
   registerAction(res) {
     //检查是否授权
+    console.log(res);
+    
     //点击授权
-    if (res.detail.errMsg == "getUserInfo:ok") {
-      this.setData({ isLogin: true })
-    }
+
+   if(res.detail.errMsg=="getUserInfo:ok"){
+     this.setData({isLogin:true});
+
+    //  宝平补充代码
+    // 提交数据库
+    
+   }
+
   }
 
 })
