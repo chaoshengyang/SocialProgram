@@ -5,24 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list: [],
+    fromPage: ''
   },
-  goDetail(options){
-    var id = options.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../topicDetail/topicDetail?id='+ id,
-    })
+  goDetail(options) {
+    if (this.data.fromPage == 'publish') {
+      console.log(123);
+      wx.navigateBack({
+        url: '../write/write'
+      })
+    } else {
+      var id = options.currentTarget.dataset.id
+      wx.navigateTo({
+        url: '/pages/topicDetail/topicDetail?id=' + id,
+      })
+    }
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ fromPage: options.id });
+    console.log(options);
+    
+  
+
     wx.request({
       url: 'http://localhost:3000/api/theme/themeList',
-      method:"GET",
-      success: (res)=>{
-        this.setData({list:res.data.data})
+      method: "GET",
+      success: (res) => {
+        // console.log(res);
+
+        this.setData({ list: res.data.data })
       }
     })
   },
@@ -37,8 +53,21 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-	
+  onShow: function () { 
+    // console.log(this);
+    console.log(this.data.fromPage === 'publish');
+    
+    if (this.data.fromPage == 'publish') {
+      console.log(123);
+      
+      wx.setNavigationBarTitle({
+        title: "选择话题"
+      })
+    }else{
+      wx.setNavigationBarTitle({
+        title: "话题广场"
+      })
+    }
   },
 
   /**

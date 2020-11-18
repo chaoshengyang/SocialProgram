@@ -22,9 +22,9 @@ Page({
       name: '关注',
       id: 2
     },
-
-
-    ]
+    ],
+    //动态列表
+    dataList: []
   },
   //切换顶部导航
   tabSelect(e) {
@@ -54,21 +54,38 @@ Page({
         this.setData({ openid: res.data })
       }
     })
-    this.requestData()
+    this.requestData();
+    const app = getApp();
+  
+   //转换时间
+   this.handleDate = app.handleDate;
   },
   //返回首页再请求一次
-  onShow:function(){
+  onShow: function () {
     this.requestData()
   },
   requestData() {
     wx.request({
       url: 'http://localhost:3000/api/dynamic/get_AllDynamic',
       method: "GET",
-      success(res) {
-        console.log(res);
+      success: (res) => {
+        // this.changeDate("Y-M-D H-M",item.publishTime)
+        const newData = res.data.dynamic.reverse().map(item=>({...item,publishTime:this.handleDate(item.publishTime)}))
+        //最新板块
+        if (this.data.tabCur === 1) {
+          this.setData({ dataList: newData})
+          console.log(res);
+        }else{
+          this.setData({ dataList: res.data.dynamic})
+        }
+
       }
     })
+  },
+  TotopicList(){
+    wx.navigateTo({
+      url: '/pages/topicList/topicList',
+    })
   }
-
 })
 
