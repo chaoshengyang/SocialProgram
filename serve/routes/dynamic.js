@@ -29,8 +29,11 @@ router.post("/send_dynamic", async (ctx) => {
         },
         //发布时间
         publishTime: "number",
+
         //话题类型 不需要判断 没有话题就不传
         // dynamicType:"string" 
+
+
     });
     // console.log(ctx.request.body);
 
@@ -42,7 +45,9 @@ router.post("/send_dynamic", async (ctx) => {
         dynamicText: result.dynamicText,
         dynamicImage: result.dynamicImage,
         publishTime: result.publishTime,
+
         dynamicType: result.dynamicType ? result.dynamicType : '',
+
         // 用户的_id
         publisher: result.userid
 

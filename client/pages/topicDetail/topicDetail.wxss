@@ -1,4 +1,7 @@
 /* pages/topicDetail/topicDetail.wxss */
+.topic-box {
+  padding-bottom: 120rpx;
+}
 .topic_list {
   padding: 0 30rpx;
 }

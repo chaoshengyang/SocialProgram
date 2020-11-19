@@ -4,6 +4,7 @@ const router = new Router({prefix:'/api/theme'})
 
 router.get("/themeList",async(ctx)=>{
     const result = await Theme.find()
+
     if(result){
         ctx.status = 200
         ctx.body = {

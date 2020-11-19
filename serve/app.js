@@ -2,10 +2,14 @@ const Koa = require("koa");
 const error = require("koa-json-error");
 const parameter = require("koa-parameter");
 const bodyparser = require("koa-bodyparser");
+const staticMiddleware = require('koa-static');
+
 const auth = require("./routes/auth");
 const theme = require("./routes/theme")
-const dynamic = require('./routes/dynamic')
-const staticMiddleware = require('koa-static');
+const dynamic = require('./routes/dynamic');
+const discuss = require("./routes/discuss");
+const praise = require("./routes/praise")
+
 const app = new Koa();
 
 //处理错误
@@ -20,6 +24,8 @@ app.use(
 
 // 解析参数
  app.use(bodyparser());
+
+
 
 
 // 解析post请求的json
@@ -41,6 +47,7 @@ app.use(
 // })
 
 
+
 // 验证参数
 parameter(app);
 // 处理静态资源
@@ -49,6 +56,8 @@ app.use(staticMiddleware('./'));
 //用户
 app.use(auth.routes()).use(auth.allowedMethods());
 app.use(dynamic.routes()).use(dynamic.allowedMethods());
+app.use(discuss.routes()).use(discuss.allowedMethods());
+app.use(praise.routes()).use(praise.allowedMethods());
 app.use(theme.routes()).use(theme.allowedMethods())
 
 

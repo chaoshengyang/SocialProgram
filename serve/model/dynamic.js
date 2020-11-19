@@ -25,7 +25,14 @@ module.exports = model('dynamic', {
         type:SchemaTypes.ObjectId,
         ref:"user"
     },
-   
+
+
+    
+//     publishTime: {
+//         type: Number,
+//         require: true
+//     },
+
 
     //动态分类
     dynamicType: {
