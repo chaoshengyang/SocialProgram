@@ -29,15 +29,19 @@ module.exports = model('dynamic', {
         ref:"userInfo"
     },
     // 关联评论
-    discussID:[{
-        type:SchemaTypes.ObjectId,
-        ref:"discuss"
-    }],
+    // discussID:[{
+    //     type:SchemaTypes.ObjectId,
+    //     ref:"discuss"
+    // }],
+
+
     // 关联用户，点赞者
-    praiseID:[{
-        type:SchemaTypes.ObjectId,
-        ref:"userInfo"
-    }],
+    // praiseID:[{
+    //     type:SchemaTypes.ObjectId,
+    //     ref:"userInfo"
+    // }],
+
+
     // 关联话题，获取话题详情
     themeAboutID:{
         type:SchemaTypes.ObjectId,

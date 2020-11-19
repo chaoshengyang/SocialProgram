@@ -3,8 +3,11 @@ const error = require("koa-json-error");
 const parameter = require("koa-parameter");
 const bodyparser = require("koa-bodyparser");
 const auth = require("./routes/auth");
-const dynamic = require('./routes/dynamic')
 
+
+const dynamic = require('./routes/dynamic');
+const discuss = require("./routes/discuss");
+const praise = require("./routes/praise")
 
 const app = new Koa();
 
@@ -45,6 +48,8 @@ parameter(app);
 // 使用路由
 app.use(auth.routes()).use(auth.allowedMethods());
 app.use(dynamic.routes()).use(dynamic.allowedMethods());
+app.use(discuss.routes()).use(discuss.allowedMethods());
+app.use(praise.routes()).use(praise.allowedMethods());
 
 
 module.exports = app;
