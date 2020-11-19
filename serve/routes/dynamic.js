@@ -29,10 +29,15 @@ router.post("/send_dynamic", async (ctx) => {
         //发布时间
         publishTime: "number",
         //话题类型
-        dynamicType: {
-            type:"string",
-            default:'我们大家庭'
+//         dynamicType: {
+//             type:"string",
+//             default:''
+
+//         },
+       
+      
         },   
+
     });
     // console.log(ctx.request.body);
   
@@ -51,7 +56,7 @@ router.post("/send_dynamic", async (ctx) => {
         dynamicText: result.dynamicText,
         dynamicImage: result.dynamicImage,
         publishTime: result.publishTime,
-        dynamicType: result.dynamicType?result.dynamicType:'我们大家庭',
+        dynamicType: result.dynamicType?result.dynamicType:'',
         // 用户的_id
         publisher:result.userid
         

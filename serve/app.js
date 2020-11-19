@@ -7,7 +7,7 @@ const auth = require("./routes/auth");
 const theme = require("./routes/theme")
 
 
-const dynamic = require('./routes/dynamic')
+
 
 
 const app = new Koa();
@@ -24,6 +24,8 @@ app.use(
 
 // 解析参数
 // app.use(bodyparser());
+
+
 
 
 // 解析post请求的json
@@ -45,13 +47,14 @@ app.use(async (ctx, next)=>{
 })
 
 
+
 // 验证参数
 parameter(app);
 
 // 使用路由
 //用户
 app.use(auth.routes()).use(auth.allowedMethods());
-app.use(dynamic.routes()).use(dynamic.allowedMethods());
+
 
 app.use(theme.routes()).use(theme.allowedMethods())
 
