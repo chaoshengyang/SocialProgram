@@ -25,7 +25,7 @@
   <view class="nav-item" wx:for="{{tabs}}" wx:key="id" bindtap="tabSelect" data-id="{{index}}">
     <view class="nav-text {{index==tabCur?'tab-on':''}}">{{item.name}}</view>
   </view>
-  <navigator url="../write/write?openid={{openid}}">
+  <navigator url="../write/write?userid={{userid}}">
     <image src="../../icon/write.png" class="write"></image>
   </navigator>
 </view>
@@ -35,11 +35,11 @@
   <view class="item_detail" wx:for="{{dataList}}" wx:key="_id">
     <view class="user_info">
       <view class="user_img">
-        <image src="{{item.avatarUrl}}" />
+        <image src="{{item.publisher.avatarUrl}}" />
       </view>
       <view class="box">
         <view class="user-box">
-          <view class="user-name">{{item.username}}</view>
+          <view class="user-name">{{item.publisher.nickName}}</view>
           <view class="date">{{item.publishTime}}</view>
         </view>
         <view class="focus">关注</view>

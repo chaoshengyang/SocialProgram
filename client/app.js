@@ -10,7 +10,7 @@ App({
   globalData: {
     username: null,
     picUrl: null,
-    openid: null
+    userid: null
   },
   requestData() {
     wx.getSetting({
@@ -36,7 +36,7 @@ App({
                       },
                       method: "POST",
                       success: (res) => {
-                        wx.setStorageSync('openid', res.data.openid)
+                        wx.setStorageSync('userid', res.data.userid)
                        
                      
                       }
