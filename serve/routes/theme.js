@@ -1,6 +1,5 @@
 const Router = require('koa-router')
 const Theme = require("../model/theme")
-
 const router = new Router({prefix:'/api/theme'})
 
 router.get("/themeList",async(ctx)=>{

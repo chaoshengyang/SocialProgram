@@ -3,13 +3,20 @@
 <view class="feedback">
   <view class="feedback-content">
 
-    <textarea class="feedback-content-info" bindinput="bindTextAreaChange" placeholder="请输入内容(200字以内)..." value="{{info}}"
-      maxlength="{{noteMaxLen}}" auto-focus="true"></textarea>
-    <!-- <view class="imgs">
+    <textarea class="feedback-content-info" bindinput="bindTextAreaChange"value="{{info}}"
+    maxlength="{{noteMaxLen}}" auto-focus="true"
+    style="text-indent:{{theme?themeWidth:0}}px;position:relative"
+    placeholder="请输入内容(200字以内)..."
+     >
+     <text  class="theme">{{theme?'#'+theme.title+'#':''}}</text>
+ 
+    
+      </textarea>
+    <view class="imgs">
       <block wx:for="{{imgList}}" wx:key="index">
         <image src="{{item}}" class="userAddImg" ></image>
       </block>
-    </view> -->
+    </view>
     <view class="number-limit">
       <view class="fl">
         <view bindtap="addImgAction">
