@@ -1,17 +1,64 @@
-<view class="topic_detail">
-  <view class="item_detail" wx:for="{{topicList}}" wx:key="index">
-    <view class="user_info">
-      <view class="user_img">
-        <image src="{{item.avatarUrl}}" />
+<view scoll-y="{{true}}" class="topic_detail-box">
+  <view class="topic_detail">
+    <view class="item_detail">
+      <view class="user_info">
+        <view class="user_img">
+          <image src="{{dynamic.avatarUrl}}" />
+        </view>
+        <view class="box">
+          <view class="user-box">
+            <view class="user-name">{{dynamic.username}}</view>
+            <view class="date">{{dynamic.publishTime}}</view>
+          </view>
+          <view class="focus">关注</view>
+        </view>
       </view>
-      <view class="box">
-        <view class="user-box">
-        <view class="user-name">{{item.username}}</view>
-        <view class="date">{{item.publishTime}}</view>
+      <view class="main">{{dynamic.dynamicText}}</view>
+      <view class="imgs">
+        <image
+          wx:for="{{['https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=640059019,2904917246&fm=26&gp=0.jpg','https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=640059019,2904917246&fm=26&gp=0.jpg','https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=640059019,2904917246&fm=26&gp=0.jpg','https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=640059019,2904917246&fm=26&gp=0.jpg']}}"
+          src="{{item}}" wx:key="index" />
       </view>
-      <view class="focus">关注</view>
+      <view class="thumb">
+        234人点赞
       </view>
     </view>
-    <view class="main">{{item.dynamicText}}</view>
+  </view>
+
+  <view class="comment-wrap">
+    <view class="commentNum">15条评论</view>
+    <view class="comment-box">
+      <view wx:for="{{comment}}" wx:key="index" class="comment-item">
+        <view class="comment-left">
+          <image src="{{item.avatarUrl}}" />
+        </view>
+        <view class="comment-right">
+          <view class="comment-name">{{item.username}}</view>
+          <view class="comment-main">{{item.replyContent}}</view>
+          <view class="comment-date">
+            <view class="time">{{item.publishTime}}</view>
+            <view class="options">
+              <view>
+                <image src="/icon/dianzan.png" />
+                <text>{{item.praiseNum}}</text>
+              </view>
+              <view>
+                <image src="/icon/huifu.png" />
+                <text>{{item.replyNum}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="comment-bottom">
+  <input type="text" placeholder="有何高见，发表一下..." class="input" />
+  <view class="icon">
+    <image src="/icon/xingxing.png" />
+    <image src="/icon/zhuanfa.png" />
+    <image src="/icon/dianzan.png" />
   </view>
 </view>

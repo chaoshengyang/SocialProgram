@@ -53,7 +53,7 @@ module.exports = model('dynamic', {
     themeAboutID:{
         type:SchemaTypes.ObjectId,
         ref:"discussTheme"
-    }
+    },
 //     publishTime: {
 //         type: Number,
 //         require: true

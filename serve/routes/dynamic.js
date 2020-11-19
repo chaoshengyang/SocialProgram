@@ -41,9 +41,6 @@ router.post("/send_dynamic", async (ctx) => {
             required:false,
             default:[],
         },
-
-
-        }
     });
     // console.log(ctx.request.body);
   
@@ -108,7 +105,6 @@ router.post("/get_AllDynamic", async (ctx) => {
 //根据id获得动态列表详情
 router.post("/getDynamicDetail", async (ctx) => {
     const id = ctx.request.body.id;
-    console.log(id)
     const dynamic = await Dynamic.findOne({_id:id});
     if(dynamic){
         ctx.status = 200;
@@ -121,13 +117,6 @@ router.post("/getDynamicDetail", async (ctx) => {
             message:'查询数据失败',
         }
     }
-    ctx.status = 200;
-    ctx.body = {
-        
-        message: '发布成功',
-        openid: result.openid
-    };
-
 
 });
 
