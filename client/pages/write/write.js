@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid:null,
+    userid:null,
     noteMaxLen: 70,//备注最多字数
     info: "",
     noteNowLen: 0,//备注当前字数,
@@ -35,7 +35,7 @@ Page({
       wx.request({
         url: 'http://localhost:3000/api/dynamic/send_dynamic',
         data: {
-          openid:this.data.openid,
+          userid:this.data.userid,
           dynamicText:this.data.info,
           dynamicImage:[],
           publishTime:new Date().getTime(),
@@ -90,7 +90,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.setData({openid:options.openid})
+      this.setData({userid:options.userid})
   },
 
 
