@@ -4,18 +4,18 @@
   <view class="top" bindtap="TotopicList"><text>话题广场</text><text>更多 ></text>
   </view>
   <view class="topic">
-      <view class="topicItem">
-         <text>#升学大家庭#</text>
-         <text class="comment">2990条讨论</text>
-      </view>
-      <view class="topicItem">
-         <text>#升学大家庭#</text>
-         <text class="comment">2990条讨论</text>
-      </view>
-      <view class="topicItem">
-         <text>#升学大家庭#</text>
-         <text class="comment">2990条讨论</text>
-      </view>
+    <view class="topicItem">
+      <text>#升学大家庭#</text>
+      <text class="comment">2990条讨论</text>
+    </view>
+    <view class="topicItem">
+      <text>#升学大家庭#</text>
+      <text class="comment">2990条讨论</text>
+    </view>
+    <view class="topicItem">
+      <text>#升学大家庭#</text>
+      <text class="comment">2990条讨论</text>
+    </view>
   </view>
 </view>
 
@@ -45,7 +45,15 @@
         <view class="focus">关注</view>
       </view>
     </view>
-    <view class="main">{{item.dynamicText}}</view>
+    <view class="imgs">
+        <block wx:for="{{item.dynamicImage}}" wx:key="index" wx:for-item="itemName">
+          <image src="http://localhost:3000{{itemName}}" class="userAddImg"></image>
+        </block>
+      </view>
+    <view class="main">
+      <text class="theme" wx:if="{{item.dynamicType!==''}}">#{{item.dynamicType}}#</text>
+      <text>{{item.dynamicText}}</text>
+    </view>
     <view class="options">
       <view class="thumbs">
         <image src="/icon/dianzan.png" />

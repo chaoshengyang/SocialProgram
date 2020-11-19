@@ -9,21 +9,24 @@ Page({
     fromPage: ''
   },
 
-    
+
   goDetail(options) {
-    if (this.data.fromPage == 'publish') {
-      console.log(123);
-      wx.navigateBack({
-        url: '../write/write'
-      })
-    } else {
-      var id = options.currentTarget.dataset.id
+    var id = options.currentTarget.dataset.id
     var title = options.currentTarget.dataset.title
-    wx.navigateTo({
-      url: '../topicDetail/topicDetail?id='+ id + '&title=' + title,
-    })
-      var id = options.currentTarget.dataset.id
-  
+    if (this.data.fromPage == 'publish') {
+      var pages = getCurrentPages();
+      var prevPage = pages[pages.length - 2]; //上一个页面
+      //直接调用上一个页面的setData()方法，把数据存到上一个页面中去
+      prevPage.setData({
+        theme: { id, title }})
+      wx.navigateBack({
+          url: '/pages/write/write?',
+        })
+      } else {
+
+      wx.navigateTo({
+        url: '../topicDetail/topicDetail?id=' + id + '&title=' + title,
+      })
     }
 
   },
@@ -34,15 +37,12 @@ Page({
   onLoad: function (options) {
     this.setData({ fromPage: options.id });
     console.log(options);
-    
-  
 
     wx.request({
       url: 'http://localhost:3000/api/theme/themeList',
       method: "GET",
       success: (res) => {
         // console.log(res);
-
         this.setData({ list: res.data.data })
       }
     })
@@ -58,17 +58,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () { 
-    // console.log(this);
-    console.log(this.data.fromPage === 'publish');
-    
+  onShow: function () {
     if (this.data.fromPage == 'publish') {
-      console.log(123);
-      
       wx.setNavigationBarTitle({
         title: "选择话题"
       })
-    }else{
+    } else {
       wx.setNavigationBarTitle({
         title: "话题广场"
       })
