@@ -16,9 +16,9 @@ mongoose.connect(
       // 启动服务器
       const server = http.createServer(app.callback());
       server.on("error", (error) => {
-        console.log("服务启动失败");
+        console.log("服务启动失败",error);
       });
-      server.listen(3000, "10.36.150.169", () => {
+      server.listen(3000, "localhost", () => {
         console.log("服务启动成功");
       });
     }

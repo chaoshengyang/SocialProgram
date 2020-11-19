@@ -38,7 +38,7 @@ Page({
     wx.getUserInfo({
       lang: 'zh_CN',
       success: (user) => {
-        console.log(user.userInfo);
+        // console.log(user.userInfo);
         
         wx.login({
           success(res) {
@@ -73,7 +73,7 @@ Page({
   //点击授权按钮
   registerAction(res) {
     //检查是否授权
-    console.log(res);
+    // console.log(res);
     
     //点击授权
 

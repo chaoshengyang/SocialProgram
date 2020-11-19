@@ -1,6 +1,6 @@
 <view class="topic">
   <view class="topic_list">
-    <view class="topic_item" wx:for="{{list}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}">
+    <view class="topic_item" wx:for="{{list}}" wx:key="_id" bindtap="goDetail" data-id="{{item._id}}" data-title="{{item.themeName}}">
         <view class="left">
           <image src="{{item.themeImage}}" />
         </view>

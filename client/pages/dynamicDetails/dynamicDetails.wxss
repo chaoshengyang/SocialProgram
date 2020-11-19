@@ -1,0 +1,148 @@
+.topic_detail-box {
+  padding-bottom: 120rpx;
+}
+.item_detail {
+  padding: 20rpx 0;
+  border-bottom: 12rpx solid #F2F2F2;
+  color: #777;
+  margin: 0 30rpx;
+}
+.user_info {
+  display: flex;
+}
+.user_img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+ .user_img  image {
+  width: 100%;
+  height: 100%;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  width: 600rpx;
+}
+.user-box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.user-name {
+  color: #333;
+}
+.date {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+.focus {
+  width: 100rpx;
+  height: 38rpx;
+  background: #FFCC33;
+  font-size: 26rpx;
+  border-radius: 16rpx;
+  text-align: center;
+  line-height: 38rpx;
+}
+.main {
+  width: 600rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  margin: 20rpx 0;
+}
+.imgs {
+  display: flex;
+  flex-wrap: wrap;
+}
+.imgs image {
+  width: 210rpx;
+  height: 210rpx;
+  margin-bottom: 16rpx;
+  margin-right: 16rpx;
+  border-radius: 12rpx;
+}
+.img image:nth-child(3n){
+  margin-right: 0;
+}
+.comment-wrap {
+  margin: 30rpx 30rpx 0;
+}
+.commentNum {
+  font-size: 34rpx;
+}
+.comment-item {
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #eee;
+}
+.comment-left image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.comment-name {
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.comment-main {
+  color: #666;
+  line-height: 60rpx;
+}
+.comment-date {
+  color: #999;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.options view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+}
+.options view image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}
+.comment-bottom {
+  position: fixed;
+  height: 120rpx;
+  background: #F9F9F9;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.input {
+  width: 420rpx;
+ border: 1rpx solid #ccc;
+ border-radius: 30rpx;
+ padding-left: 30rpx;
+ height: 60rpx;
+ margin: 0 10rpx 0 30rpx;
+}
+.icon {
+  display: flex;
+  flex: 1;
+  justify-items: flex-end;
+}
+.icon image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 30rpx;
+}

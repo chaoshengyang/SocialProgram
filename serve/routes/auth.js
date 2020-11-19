@@ -26,12 +26,13 @@ router.post("/send_code", async (ctx) => {
   if (result.status === 200) {
     // 隐藏步骤：静默注册
     const user = await User.findOne({ openid: result.data.openid });
+    
     if (user) {
       //老用户了
       ctx.status = 200;
       ctx.body = {
         message: "已经注册过",
-        openid: result.data.openid,
+        userid:user._id
       };
     } else {
       //新用户，需要注册
@@ -46,11 +47,12 @@ router.post("/send_code", async (ctx) => {
          userCity: body.userCity,
          userPhone: body.userPhone,
          }).save();
+        
       // 登录第五步：响应登录态给客户端
       ctx.status = 200;
       ctx.body = {
         message: "注册成功",
-        openid: result.data.openid,
+        userid:newUser._id
       };
     }
   } else {

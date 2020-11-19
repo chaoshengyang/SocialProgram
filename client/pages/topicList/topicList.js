@@ -8,6 +8,8 @@ Page({
     list: [],
     fromPage: ''
   },
+
+    
   goDetail(options) {
     if (this.data.fromPage == 'publish') {
       console.log(123);
@@ -16,9 +18,12 @@ Page({
       })
     } else {
       var id = options.currentTarget.dataset.id
-      wx.navigateTo({
-        url: '/pages/topicDetail/topicDetail?id=' + id,
-      })
+    var title = options.currentTarget.dataset.title
+    wx.navigateTo({
+      url: '../topicDetail/topicDetail?id='+ id + '&title=' + title,
+    })
+      var id = options.currentTarget.dataset.id
+  
     }
 
   },

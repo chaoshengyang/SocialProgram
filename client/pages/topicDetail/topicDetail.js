@@ -6,60 +6,37 @@ Page({
    */
   data: {
     topicObj:{},
-    topicList:[
-      {
-        userName:"zhangsan",
-        userImage:"",
-        date:"2小时前",
-        main:"道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。",
-        thumbsCount:34,
-        commentCount:34,
-        sharCount:34
-      },
-      {
-        userName:"zhangsan",
-        userImage:"",
-        date:"2小时前",
-        main:"道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。",
-        thumbsCount:34,
-        commentCount:34,
-        sharCount:34
-      },
-      {
-        userName:"zhangsan",
-        userImage:"",
-        date:"2小时前",
-        main:"道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。",
-        thumbsCount:34,
-        commentCount:34,
-        sharCount:34
-      },
-      {
-        userName:"zhangsan",
-        userImage:"",
-        date:"2小时前",
-        main:"道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。道可道，非常道，名可名，非常名。",
-        thumbsCount:34,
-        commentCount:34,
-        sharCount:34
-      }
-    ]
+    topicList:[]
     
+  },
+  goDynamicDetails(options){
+    var id = options.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../dynamicDetails/dynamicDetails?id='+ id,
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (id) {
+  onLoad: function ({id,title}) {
     wx.request({
       url: 'http://localhost:3000/api/theme/getThemeListDetail',
-      data:id,
+      data:{id:id},
       method:'POST',
       success:(res)=>{
         this.setData({topicObj:res.data.data})
         wx.setNavigationBarTitle({
           title: "#"+this.data.topicObj.themeName + "#"
         })
+      }
+    });
+    wx.request({
+      url: 'http://localhost:3000/api/dynamic/get_AllDynamic',
+      data:{title},
+      method:'POST',
+      success:(res)=>{
+        this.setData({topicList:res.data.dynamic})
       }
     });
   },

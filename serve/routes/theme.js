@@ -5,6 +5,7 @@ const router = new Router({prefix:'/api/theme'})
 
 router.get("/themeList",async(ctx)=>{
     const result = await Theme.find()
+
     if(result){
         ctx.status = 200
         ctx.body = {
@@ -18,7 +19,7 @@ router.get("/themeList",async(ctx)=>{
         }
     }
 })
-
+//获得具体哪一个话题
 router.post("/getThemeListDetail",async(ctx)=>{
     ctx.verifyParams({
         id:"string"
@@ -39,7 +40,7 @@ router.post("/getThemeListDetail",async(ctx)=>{
     }
 })
 
-router.post("/detailThemeList",async(ctx)=>{
+router.post("/deleteThemeList",async(ctx)=>{
     ctx.verifyParams({
         id:"string"
     })
