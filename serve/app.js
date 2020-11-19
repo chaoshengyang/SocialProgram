@@ -10,6 +10,10 @@ const theme = require("./routes/theme")
 
 
 
+const dynamic = require('./routes/dynamic');
+const discuss = require("./routes/discuss");
+const praise = require("./routes/praise")
+
 const app = new Koa();
 
 //处理错误
@@ -54,8 +58,9 @@ parameter(app);
 // 使用路由
 //用户
 app.use(auth.routes()).use(auth.allowedMethods());
-
-
+app.use(dynamic.routes()).use(dynamic.allowedMethods());
+app.use(discuss.routes()).use(discuss.allowedMethods());
+app.use(praise.routes()).use(praise.allowedMethods());
 app.use(theme.routes()).use(theme.allowedMethods())
 
 
