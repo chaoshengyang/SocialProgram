@@ -18,7 +18,7 @@ router.get("/themeList",async(ctx)=>{
         }
     }
 })
-
+//获得具体哪一个话题
 router.post("/getThemeListDetail",async(ctx)=>{
     ctx.verifyParams({
         id:"string"
@@ -39,7 +39,7 @@ router.post("/getThemeListDetail",async(ctx)=>{
     }
 })
 
-router.post("/detailThemeList",async(ctx)=>{
+router.post("/deleteThemeList",async(ctx)=>{
     ctx.verifyParams({
         id:"string"
     })

@@ -3,15 +3,15 @@ const {model,SchemaTypes} = require('mongoose');
 module.exports = model('theme', {
     themeName: {
         type:String,
-        require:true
+        required:true
     },
     themeImage: {
         type:String,
-        require:true
+        required:true
     },
     themeDetail: {
         type:String,
-        require:true
+        required:true
     }, 
     isRecommend: {
         type:Boolean,
@@ -19,10 +19,10 @@ module.exports = model('theme', {
     },
     discussNum: {
         type:Number,
-        require:true
+        required:true
     },
     browseNum: {
         type:Number,
-        require:true
+        required:true
     }
 })

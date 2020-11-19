@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid: '',
+    userid: '',
     username: '',
     picUrl: '',
     msgList: [],
@@ -49,9 +49,9 @@ Page({
       }
     })
     wx.getStorage({
-      key: 'openid',
+      key: 'userid',
       success: (res) => {
-        this.setData({ openid: res.data })
+        this.setData({ userid: res.data })
       }
     })
     this.requestData();
@@ -69,12 +69,13 @@ Page({
       url: 'http://localhost:3000/api/dynamic/get_AllDynamic',
       method: "GET",
       success: (res) => {
+        
         // this.changeDate("Y-M-D H-M",item.publishTime)
         const newData = res.data.dynamic.reverse().map(item=>({...item,publishTime:this.handleDate(item.publishTime)}))
         //最新板块
         if (this.data.tabCur === 1) {
           this.setData({ dataList: newData})
-          console.log(res);
+          // console.log(res);
         }else{
           this.setData({ dataList: res.data.dynamic})
         }
